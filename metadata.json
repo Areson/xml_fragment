@@ -1,12 +1,12 @@
 {
-  "name": "xml_fragment",
+  "name": "ioberst-xml_fragment",
   "version": "1.0.0",
   "author": "ioberst",
   "summary": "The xml_fragment manages xml fragments within xml documents.",
-  "license": "N/A",
-  "source": "Internal",
-  "project_page": "Internal",
-  "issues_url": "Internal",
+  "license": "MIT License",
+  "source": "https://github.com/Areson/xml_fragment",
+  "project_page": "https://github.com/Areson/xml_fragment",
+  "issues_url": "https://github.com/Areson/xml_fragment/issues",
   "tags": [
     "xml",
     "xpath",
