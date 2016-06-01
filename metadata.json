@@ -1,0 +1,65 @@
+{
+  "name": "xml_fragment",
+  "version": "1.0.0",
+  "author": "ioberst",
+  "summary": "The xml_fragment manages xml fragments within xml documents.",
+  "license": "N/A",
+  "source": "Internal",
+  "project_page": "Internal",
+  "issues_url": "Internal",
+  "tags": [
+    "xml",
+    "xpath",
+    "config"
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat"
+    },
+    {
+      "operatingsystem": "Centos"
+    },
+    {
+      "operatingsystem": "OracleLinux"
+    },
+    {
+      "operatingsystem": "Scientific"
+    },
+    {
+      "operatingsystem": "SLES"
+    },
+    {
+      "operatingsystem": "Debian"
+    },
+    {
+      "operatingsystem": "Ubuntu"
+    },
+    {
+      "operatingsystem": "Solaris"
+    },
+    {
+      "operatingsystem": "AIX"
+    },
+    {
+      "operatingsystem": "Windows",
+      "operatingsystemrelease": [
+        "Server 2012",
+        "Server 2012 R2"
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "pe",
+      "version_requirement": ">= 3.7.0"
+    },
+    {
+      "name": "puppet",
+      "version_requirement": ">= 3.7.0"
+    }
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 4.3.0"
+    }
+  ]
+}
