@@ -1,16 +1,19 @@
 {
-  "name": "ioberst-xml_fragment",
-  "version": "1.0.0",
-  "author": "ioberst",
-  "summary": "The xml_fragment manages xml fragments within xml documents.",
-  "license": "MIT License",
+  "name": "ianoberst-xml_fragment",
+  "version": "1.0.1",
+  "author": "Ian Oberst <ian.oberst@gmail.com>",
+  "summary": "A native Puppet module that manages XML documents using REXML.",
+  "license": "MIT",
   "source": "https://github.com/Areson/xml_fragment",
   "project_page": "https://github.com/Areson/xml_fragment",
   "issues_url": "https://github.com/Areson/xml_fragment/issues",
   "tags": [
     "xml",
     "xpath",
-    "config"
+    "config",
+    "rexml",    
+    "type",
+    "provider"
   ],
   "operatingsystem_support": [
     {
@@ -48,18 +51,14 @@
       ]
     }
   ],
-  "dependencies": [
+  "requirements": [
     {
       "name": "pe",
-      "version_requirement": ">= 3.7.0"
+      "version_requirement": ">= 3.0.0"
     },
     {
       "name": "puppet",
-      "version_requirement": ">= 3.7.0"
-    }
-    {
-      "name": "puppetlabs-stdlib",
-      "version_requirement": ">= 4.3.0"
+      "version_requirement": ">= 3.0.0 < 5.0.0"
     }
   ]
 }
