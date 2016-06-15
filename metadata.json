@@ -5,6 +5,7 @@
   "summary": "A native Puppet module that manages XML documents using REXML.",
   "license": "MIT",
   "source": "https://github.com/Areson/xml_fragment",
+  "dependencies": [],
   "project_page": "https://github.com/Areson/xml_fragment",
   "issues_url": "https://github.com/Areson/xml_fragment/issues",
   "tags": [
