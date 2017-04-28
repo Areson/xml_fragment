@@ -52,7 +52,7 @@ xml_fragment { "Localhost Host":
     xpath       => "/hosts/host[@ip='127.0.0.1']",
     content     => {
         value   => "Localhost",
-        attributes {
+        attributes => {
             "ip" => "127.0.0.1"
         }
     }
