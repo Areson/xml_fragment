@@ -1,89 +1,89 @@
 Puppet::Type.newtype(:xml_fragment) do
-	desc "An XML fragment that exists inside an XML file"
-	
-	ensurable do
-		defaultvalues
-		defaultto :present
-	end
+  desc 'An XML fragment that exists inside an XML file'
 
-	newparam(:name, :namevar => true) do
-		desc "A unique identifier for the XML fragment."
+  ensurable do
+    defaultvalues
+    defaultto :present
+  end
 
-		munge do |value|
-			value.downcase
-		end
-	end
+  newparam(:name, 'namevar' => true) do
+    desc 'A unique identifier for the XML fragment.'
 
-	newparam(:path) do
-		desc "Full path to the xml file that the XML fragment exists in."
+    munge do |value|
+      value.downcase
+    end
+  end
 
-		validate do |value|
-			raise ArgumentError, "You must specify a path." if !value
-			raise ArgumentError, "Path must be a string." if !value.is_a?(String)
-		end
-	end
+  newparam(:path) do
+    desc 'Full path to the xml file that the XML fragment exists in.'
 
-	newparam(:xpath) do
-		desc "The xpath of the node to manage. The last XML tag in the xpath will be used as the name of the tag."
+    validate do |value|
+      raise ArgumentError, 'You must specify a path.' unless value
+      raise ArgumentError, 'Path must be a string.' unless value.is_a?(String)
+    end
+  end
 
-		validate do |value|
-			raise ArgumentError, "You must specify an xpath." if !value
-			raise ArgumentError, "Xpath must be a string." if !value.is_a?(String)
-		end
-	end
+  newparam(:xpath) do
+    desc 'The xpath of the node to manage. The last XML tag in the xpath will be used as the name of the tag.'
 
-	newparam(:purge) do
-		desc "Purge all unmanged XML tags that are children of the tags specified by the xpath parameters."
-		defaultto :false
+    validate do |value|
+      raise ArgumentError, 'You must specify an xpath.' unless value
+      raise ArgumentError, 'Xpath must be a string.' unless value.is_a?(String)
+    end
+  end
 
-		newvalues(:true, :false)
-	end
+  newparam(:purge) do
+    desc 'Purge all unmanged XML tags that are children of the tags specified by the xpath parameters.'
+    defaultto :false
 
-	newproperty(:content) do
-		desc "A hash that describes the xml fragment."	
+    newvalues(:true, :false)
+  end
 
-		defaultto Hash.new
+  newproperty(:content) do
+    desc 'A hash that describes the xml fragment.'
 
-		validate do |value|
-			raise ArgumentError, "Value must be a hash." if !value.is_a?(Hash)
-			raise ArgumentError, "Value must be a string." if value.has_key?("value") && !value["value"].is_a?(String)
+    defaultto {}
 
-			if value.has_key?("attributes")
-				has_contents = false
-				value["attributes"].each do |key, val|
-					has_contents = true
+    validate do |value|
+      raise ArgumentError, 'Value must be a hash.' unless value.is_a?(Hash)
+      raise ArgumentError, 'Value must be a string.' if value.key?('value') && !value['value'].is_a?(String)
 
-					# Convert to a string
-					if !val.is_a?(String)
-						value["attributes"][key] = "#{val}"
-					end
+      if value.key?('attributes')
+        has_contents = false
+        value['attributes'].each do |key, val|
+          has_contents = true
 
-					raise ArgumentError, "Attribute #{key} must be a string." if !value["attributes"][key].is_a?(String)
-				end
+          # Convert to a string
+          unless val.is_a?(String)
+            value['attributes'][key] = val
+          end
 
-				raise ArgumentError, "You must specify at least one attribute for a tag if you include the attributes hash." if !has_contents
-			end
-		end	
+          raise ArgumentError, "Attribute #{key} must be a string." unless value['attributes'][key].is_a?(String)
+        end
 
-		def insync?(is)
-			provider.matches(is, should)	
-		end
+        raise ArgumentError, 'You must specify at least one attribute for a tag if you include the attributes hash.' unless has_contents
+      end
+    end
 
-		#def change_to_s(is, should)
-		#	"'#{resource[:path]}': Tag <#{resource[:tag]}> -> value was #{is}, changed to #{should}"
-		#end
+    def insync?(is)
+      provider.matches(is, should)
+    end
 
-		def is_to_s(is)
-			str = ""
-			is.each do |i|
-				str += i.to_s()
-			end
+    # def change_to_s(is, should)
+    #  "'#{resource[:path]}': Tag <#{resource[:tag]}> -> value was #{is}, changed to #{should}"
+    # end
 
-			str
-		end
+    def is_to_s(is) # rubocop:disable Style/PredicateName
+      str = ''
+      is.each do |i|
+        str += i.to_s
+      end
 
-		def should_to_s(should)
-			should.to_s()
-		end
-	end
+      str
+    end
+
+    def should_to_s(should)
+      should.to_s
+    end
+  end
 end

@@ -5,16 +5,10 @@
   "summary": "A native Puppet module that manages XML documents using REXML.",
   "license": "MIT",
   "source": "https://github.com/Areson/xml_fragment",
-  "dependencies": [],
   "project_page": "https://github.com/Areson/xml_fragment",
   "issues_url": "https://github.com/Areson/xml_fragment/issues",
-  "tags": [
-    "xml",
-    "xpath",
-    "config",
-    "rexml",    
-    "type",
-    "provider"
+  "dependencies": [
+
   ],
   "operatingsystem_support": [
     {
@@ -54,12 +48,19 @@
   ],
   "requirements": [
     {
-      "name": "pe",
-      "version_requirement": ">= 3.0.0"
-    },
-    {
       "name": "puppet",
       "version_requirement": ">= 3.0.0 < 5.0.0"
     }
-  ]
+  ],
+  "tags": [
+    "xml",
+    "xpath",
+    "config",
+    "rexml",
+    "type",
+    "provider"
+  ],
+  "pdk-version": "1.6.0",
+  "template-url": "file:///opt/puppetlabs/pdk/share/cache/pdk-templates.git",
+  "template-ref": "1.6.0-0-gf5564c0"
 }
