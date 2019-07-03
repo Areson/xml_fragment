@@ -55,7 +55,7 @@ Puppet::Type.newtype(:xml_fragment) do
 
           # Convert to a string
           unless val.is_a?(String)
-            value['attributes'][key] = val
+            value['attributes'][key] = val.to_s
           end
 
           raise ArgumentError, "Attribute #{key} must be a string." unless value['attributes'][key].is_a?(String)
