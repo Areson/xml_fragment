@@ -45,10 +45,11 @@ Puppet::Type.newtype(:xml_fragment) do
     defaultto {}
 
     validate do |value|
-      raise ArgumentError, 'Value must be a hash.' unless value.is_a?(Hash)
-      raise ArgumentError, 'Value must be a string.' if value.key?('value') && !value['value'].is_a?(String)
+      raise ArgumentError, '`content` must be a hash.' unless value.is_a?(Hash)
+      raise ArgumentError, '`content[\'value\']` must be a string if specified' if value.key?('value') && !value['value'].is_a?(String)
 
       if value.key?('attributes')
+        raise ArgumentError, 'attributes must be a hash.' unless value['attributes'].is_a?(Hash)
         has_contents = false
         value['attributes'].each do |key, val|
           has_contents = true
@@ -57,8 +58,6 @@ Puppet::Type.newtype(:xml_fragment) do
           unless val.is_a?(String)
             value['attributes'][key] = val.to_s
           end
-
-          raise ArgumentError, "Attribute #{key} must be a string." unless value['attributes'][key].is_a?(String)
         end
 
         raise ArgumentError, 'You must specify at least one attribute for a tag if you include the attributes hash.' unless has_contents
