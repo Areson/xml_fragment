@@ -12,9 +12,9 @@ Puppet::Type.type(:xml_fragment).provide(:xml_fragment) do
   def self.xml_fragment_classvars
     unless @xml_fragment_classvars
       @xml_fragment_classvars = {
-        'read_only' => {},
-        'write_only' => {},
-        'purge' => {},
+        :read_only => {},
+        :write_only => {},
+        :purge => {},
       }
     end
 
