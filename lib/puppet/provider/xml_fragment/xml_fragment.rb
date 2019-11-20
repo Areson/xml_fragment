@@ -44,7 +44,7 @@ Puppet::Type.type(:xml_fragment).provide(:xml_fragment) do
 
       # Mark each of the nodes to note that we don't delete them
       found.each do |node|
-        node.add_attribute('Puppet::Util::XmlFile.Managed', true)
+        node.add_attribute('Puppet-Util-XmlFile.Managed', true)
       end
     end
 
@@ -54,7 +54,7 @@ Puppet::Type.type(:xml_fragment).provide(:xml_fragment) do
       parent_xpath = matches[1]
       tag_name = matches[2]
 
-      removedElements = file.remove_elements("#{parent_xpath}/#{tag_name}/*[not(@Puppet::Util::XmlFile.Managed)]") # rubocop:disable Style/VariableName
+      removedElements = file.remove_elements("#{parent_xpath}/#{tag_name}/*[not(@Puppet-Util-XmlFile.Managed)]") # rubocop:disable Style/VariableName
 
       unless removedElements.empty?
         Puppet.notice("Removing unmanaged elements #{p[:xpath]}")
@@ -63,7 +63,7 @@ Puppet::Type.type(:xml_fragment).provide(:xml_fragment) do
 
     # Remove the attributes that we added
     managed.each do |node|
-      node.delete_attribute('Puppet::Util::XmlFile.Managed')
+      node.delete_attribute('Puppet-Util-XmlFile.Managed')
     end
 
     file.save
@@ -77,7 +77,7 @@ Puppet::Type.type(:xml_fragment).provide(:xml_fragment) do
     final_matches = []
 
     initial_matches.each do |m|
-      final_matches.push(Puppet::Util::XmlFile.node_to_hash(m))
+      final_matches.push(Puppet-Util-XmlFile.node_to_hash(m))
     end
 
     final_matches
