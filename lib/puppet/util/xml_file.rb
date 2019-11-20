@@ -133,11 +133,11 @@ module Puppet::Util
 
         new_element = REXML::Element.new(tag)
 
-        if value.key?('value')
+        if value && value.key?('value')
           new_element.text = value['value']
         end
 
-        if value.key?('attributes')
+        if value && value.key?('attributes')
           new_element.add_attributes(value['attributes'])
         end
 
