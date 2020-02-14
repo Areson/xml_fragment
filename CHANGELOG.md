@@ -1,8 +1,8 @@
-## 2019-??-?? - 1.0.3
-  - Added items to satisyf puppet-lin and pdk (Thanks silug)
+## 2020-02-14 - 1.0.3
+  - Added items to satisfy puppet-lint and pdk (Thanks silug)
   - Added better validation for verifying proper parameters passed (Thanks alexjfisher)
   - Changed syntax on attributes used by module to satisfy REXML (Thanks MacGregor001)
-  - Fixed issue with Purge that caused file to be modified during eachp puppet run even if there were no changes (Thanks alexjfisher)
+  - Fixed issue with Purge that caused file to be modified during each puppet run even if there were no changes (Thanks alexjfisher)
   - Added additional checks to prevent "undefined method" errors (Thanks alexjfisher)
 
 ## 2016-06-15 - 1.0.2
