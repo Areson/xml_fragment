@@ -44,9 +44,11 @@ Puppet::Type.type(:xml_fragment).provide(:xml_fragment) do
 
       # Mark each of the nodes to note that we don't delete them
       found.each do |node|
-        node.add_attribute('Puppet::Util::XmlFile.Managed', true)
+        node.add_attribute('Puppet-Util-XmlFile.Managed', true)
       end
     end
+
+    hasChanges = :false
 
     # Iterate through the purge parents and remove immediate children that are no managed
     purgeParents.each do |p|
@@ -54,19 +56,23 @@ Puppet::Type.type(:xml_fragment).provide(:xml_fragment) do
       parent_xpath = matches[1]
       tag_name = matches[2]
 
-      removedElements = file.remove_elements("#{parent_xpath}/#{tag_name}/*[not(@Puppet::Util::XmlFile.Managed)]") # rubocop:disable Style/VariableName
+      removedElements = file.remove_elements("#{parent_xpath}/#{tag_name}/*[not(@Puppet-Util-XmlFile.Managed)]") # rubocop:disable Style/VariableName
 
       unless removedElements.empty?
+        hasChanges = :true
         Puppet.notice("Removing unmanaged elements #{p[:xpath]}")
       end
     end
 
     # Remove the attributes that we added
     managed.each do |node|
-      node.delete_attribute('Puppet::Util::XmlFile.Managed')
+      node.delete_attribute('Puppet-Util-XmlFile.Managed')
     end
 
-    file.save
+    if hasChanges == :true
+      Puppet.debug("Saving file after purging elements.")
+      file.save
+    end
   end
 
   def content
