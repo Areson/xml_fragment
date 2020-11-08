@@ -185,6 +185,12 @@ Puppet::Type.type(:xml_fragment).provide(:xml_fragment) do
         break
       end
 
+      # Check to see if we have should have attributes but none are on the element
+      if should.key?('attributes') && !i.key?('attributes')
+        is_match = false
+        break
+      end
+      
       next unless should.key?('attributes') && i.key?('attributes')
 
       should['attributes'].each do |key, _value|
