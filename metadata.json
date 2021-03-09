@@ -1,6 +1,6 @@
 {
   "name": "ianoberst-xml_fragment",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "Ian Oberst <ian.oberst@gmail.com>",
   "summary": "A native Puppet module that manages XML documents using REXML.",
   "license": "MIT",
