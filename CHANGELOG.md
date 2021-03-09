@@ -1,3 +1,6 @@
+## 2021-03-09 - 1.0.4
+  - Fixed bug where attributes were not added to nodes if it already existed in the target but had no existing attributes (Thanks rpolley)
+
 ## 2020-02-14 - 1.0.3
   - Added items to satisfy puppet-lint and pdk (Thanks silug)
   - Added better validation for verifying proper parameters passed (Thanks alexjfisher)
