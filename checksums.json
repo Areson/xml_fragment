@@ -1,0 +1,15 @@
+{
+  "CHANGELOG.md": "828d9e1c822ba921085ceb82634abffc",
+  "Gemfile": "d9261e8fb7c62c2632243acad1b6e8a2",
+  "README.md": "0096c56f6fdea2e9b89e40c643c5093d",
+  "Rakefile": "64414d188e7328215f4020ddc0df7f1a",
+  "appveyor.yml": "f1afe7aa410658cf0398ac48649cf7b1",
+  "examples/test.pp": "9a1ddd964464922c69d387d27f976e53",
+  "lib/puppet/provider/xml_fragment/xml_fragment.rb": "fd8a9f45a57a3fefe5c20dd218fa8929",
+  "lib/puppet/type/xml_fragment.rb": "71b9a500e46b98dcdb251506e71fb316",
+  "lib/puppet/util/xml_file.rb": "abb4ec761806819d7f3a394a7ede0da0",
+  "metadata.json": "94b0d008dbdc161a16ce2095d6066b16",
+  "spec/default_facts.yml": "9bfb206675d4ee70d7fe311164f9f97d",
+  "spec/spec_helper.rb": "0cbd71cdabc0db0c9a679a605835fa2e",
+  "spec/unit/puppet/type/xml_fragment_spec.rb": "91872b02b9e4993e3c4a09e4bf62d153"
+}
