@@ -1,3 +1,6 @@
+## 2023-01-10 - 1.0.5
+  - Updating metadata to indicate support for Puppet version 7 and 8 (Thanks tuxmea)
+
 ## 2021-03-09 - 1.0.4
   - Fixed bug where attributes were not added to nodes if it already existed in the target but had no existing attributes (Thanks rpolley)
 
